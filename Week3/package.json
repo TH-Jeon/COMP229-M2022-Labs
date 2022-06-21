@@ -6,6 +6,12 @@
   "author": "Taehyun Jeon",
   "license": "MIT",
   "dependencies": {
+    "jquery": "^3.6.0",
     "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.14",
+    "@types/mime-types": "^2.1.1",
+    "@types/node": "^18.0.0"
   }
 }
