@@ -10,5 +10,9 @@ const MovieSchema = new Schema({
     Year: String,
     Director: String,
     Rating: String
+}, {
+    collection: "movies"
 });
+const Model = mongoose_1.default.model("Movies", MovieSchema);
+exports.default = Model;
 //# sourceMappingURL=movie.js.map
