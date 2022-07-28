@@ -6,6 +6,7 @@ import Header from './components/header';
 
 //Content Components
 import Home from './content/home';
+import Footer from './components/footer';
 
 //Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,7 +25,7 @@ function App() {
         <Route path="/home" element={<Home />} />
       </Routes>
 
-
+      <Footer></Footer>
       </BrowserRouter>
     </div>
   );
