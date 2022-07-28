@@ -4,21 +4,38 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-//Step 1 - import db package
+//import db package
 import mongoose from 'mongoose';
+
+//Step 1 for auth - import modules
+import session from 'express-session';
+import passport from 'passport';
+import passportLocal from 'passport-local';
+import flash from 'connect-flash';
+
+//modules for JWT support
+import cors from 'cors';
+
+//Step 2 for auth - define our auth objects
+let localStrategy = passportLocal.Strategy; //alias
+
+//Step 3 for auth - import the user model
+import User from '../Models/user';
+
 
 //import the router data
 import indexRouter from '../Routes/index'; //top-level routes
 import movieListRouter from '../Routes/movie-list'; //movie-list routes
+import authRouter from '../Routes/auth'; // authentication routes
 
 const app = express();
 
-//Step 2 - Complete the DB Configuration
+//Complete the DB Configuration
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.LocalURI);
+mongoose.connect(DBConfig.RemoteURI);
 const db = mongoose.connection;   //alias for the mongoose connection
 
-//Step 3 - Listen for connections or errors
+//Listen for connections or errors
 db.on("open", function()
 {
   console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
@@ -40,10 +57,35 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules/')));
 
+app.use(cors());  //adds CORS (Cross-Origin Resource Sharing) to the config
+
+//Step 4 for auth - setup express session
+app.use(session({
+  secret: DBConfig.Secret,
+  saveUninitialized: false,
+  resave: false
+}));
+
+//Step 5 for auth - setup Flash
+app.use(flash());
+
+//Step 6 for auth - initialize passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Step 7 for auth - implement the Auth Strategy
+passport.use(User.createStrategy());
+
+//Step 8 for auth- setup User serialization and deserialization (encoding and decoding)
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 
 //use routes
 app.use('/', indexRouter);
 app.use('/', movieListRouter);
+app.use('/', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) 
