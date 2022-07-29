@@ -50,7 +50,7 @@ function Contact()
                 </form>
             </div>
         </div>
-    )    
+    );    
 }
 
 export default Contact;

@@ -14,7 +14,7 @@ function Projects()
             <hr />
             <p>Here is detail for our projects</p>
         </div>
-    )    
+    );    
 }
 
 export default Projects;

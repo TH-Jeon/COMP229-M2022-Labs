@@ -14,7 +14,7 @@ function About()
             <hr />
             <p>Here is detail about us...</p>
         </div>
-    )    
+    );    
 }
 
 export default About;

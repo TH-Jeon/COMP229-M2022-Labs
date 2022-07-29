@@ -31,7 +31,7 @@ function Header()
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Header;

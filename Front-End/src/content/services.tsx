@@ -14,7 +14,7 @@ function Services()
             <hr />
             <p>Here is detail about our services</p>
         </div>
-    )    
+    );    
 }
 
 export default Services;

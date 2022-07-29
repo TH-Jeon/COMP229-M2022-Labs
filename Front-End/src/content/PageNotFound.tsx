@@ -12,7 +12,7 @@ function PageNotFound()
         <div className="container">
             <h1>ERROR: 404 - Page Not Found!</h1>
         </div>
-    )
+    );
 }
 
 export default PageNotFound;

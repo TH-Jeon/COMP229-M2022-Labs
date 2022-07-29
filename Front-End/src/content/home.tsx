@@ -15,7 +15,7 @@ function Home()
                 <button className="btn btn-primary">Learn About Us!</button>
             </Link>
         </div>
-    )
+    );
 }
 
 export default Home;

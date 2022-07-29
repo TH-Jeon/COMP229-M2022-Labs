@@ -13,6 +13,9 @@ import Services from './content/services';
 import Contact from './content/contact';
 import PageNotFound from './content/PageNotFound';
 
+//Authentication Components
+import Login from './authentication/login';
+
 //Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -32,6 +35,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        
         <Route path="*" element={<PageNotFound />} />      
 
       </Routes>

@@ -16,7 +16,7 @@ function Footer()
                 <h5 id="copyright">&copy; Copyright { getDate() }</h5>
             </div>
         </nav>
-    )    
+    );    
 }
 
 export default Footer;
