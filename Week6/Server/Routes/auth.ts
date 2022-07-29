@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-//import the controller module
+// import the controller module
 import { DisplayRegisterPage, ProcessLogoutPage, DisplayLoginPage, ProcessLoginPage, ProcessRegisterPage } from "../Controllers/auth";
 
 /* Display Login page. */
@@ -15,7 +15,7 @@ router.get('/register', DisplayRegisterPage);
 /* Process Login page. */
 router.post('/login', ProcessLoginPage);
 
-/* Process Register services page. */
+/* Process Register page. */
 router.post('/register', ProcessRegisterPage);
 
 /* Process Logout page. */

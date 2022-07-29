@@ -1,10 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
-//import the controller module
+// import the controller module
 import { DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayProjectsPage, DisplayServicesPage } from "../Controllers/index";
-//= import * as IndexController from '../Controllers/index';
-//IndexController.options;
 
 /* Display home page. */
 router.get('/', DisplayHomePage);
@@ -23,6 +21,5 @@ router.get('/services', DisplayServicesPage);
 
 /* Display contact page. */
 router.get('/contact', DisplayContactPage);
-
 
 export default router;

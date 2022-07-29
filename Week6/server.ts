@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
 import app from './Server/Config/app';
 import debug from 'debug';
 debug('week4:server');
