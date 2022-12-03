@@ -6,7 +6,7 @@
     //named function
     function Start()
     {
-        console.log("App Started!...");
+        console.log("App Started!...!!");
     }
 
     window.addEventListener("load", Start);
